@@ -27,9 +27,4 @@ public class AttackerSpawner : MonoBehaviour
             Instantiate(attackerPrefab, transform.position, Quaternion.identity);
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
 }
