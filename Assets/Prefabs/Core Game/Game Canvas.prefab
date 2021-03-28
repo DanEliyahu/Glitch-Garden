@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 597251778}
   - component: {fileID: 597251780}
   - component: {fileID: 597251779}
+  - component: {fileID: 597251781}
   m_Layer: 5
   m_Name: Stars Text
   m_TagString: Untagged
@@ -79,6 +80,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 99999
+--- !u!114 &597251781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597251777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dec19f433a30d693b3b92b5385b2ea7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stars: 1000
 --- !u!1 &3970324718013655005
 GameObject:
   m_ObjectHideFlags: 0

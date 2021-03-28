@@ -8,13 +8,25 @@ public class DefenderSpawner : MonoBehaviour
 
     private void OnMouseDown()
     {
-        SpawnDefender(GetSquareClick());
+        AttemptToPlaceDefenderAt(GetSquareClick());
     }
 
     public void SetSelectedDefender(Defender defenderToSelect)
     {
         _defender = defenderToSelect;
     }
+
+    private void AttemptToPlaceDefenderAt(Vector2 gridPos)
+    {
+        var starDisplay = FindObjectOfType<StarDisplay>();
+        int defenderCost = _defender.GetStarCost();
+        if (starDisplay.HaveEnoughStars(defenderCost))
+        {
+            SpawnDefender(gridPos);
+            starDisplay.SpendStars(defenderCost);
+        }
+    }
+
     private Vector2 GetSquareClick()
     {
         var clickPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);

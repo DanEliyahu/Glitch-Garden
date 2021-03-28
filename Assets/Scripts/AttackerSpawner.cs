@@ -24,7 +24,8 @@ public class AttackerSpawner : MonoBehaviour
     {
         if (attackerPrefab)
         {
-            Instantiate(attackerPrefab, transform.position, Quaternion.identity);
+            var newAttacker = Instantiate(attackerPrefab, transform.position, Quaternion.identity);
+            newAttacker.transform.SetParent(transform);
         }
     }
 }
