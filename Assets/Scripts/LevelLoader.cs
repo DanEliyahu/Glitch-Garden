@@ -6,7 +6,9 @@ public class LevelLoader : MonoBehaviour
 {
     [SerializeField] private Animator transition;
     [SerializeField] private float timeToWait = 2.5f;
-    [SerializeField] private float animationTime = 1f;
+    [SerializeField] private float animationTime = 1f; 
+    private static readonly int FadeIn = Animator.StringToHash("FadeIn");
+    private static readonly int FadeOut = Animator.StringToHash("FadeOut");
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +19,7 @@ public class LevelLoader : MonoBehaviour
         }
         else
         {
-            transition.SetTrigger("FadeIn");
+            transition.SetTrigger(FadeIn);
         }
     }
 
@@ -26,9 +28,14 @@ public class LevelLoader : MonoBehaviour
         StartCoroutine(LoadScene(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
+    public void LoadLoseScreen()
+    {
+        StartCoroutine(LoadScene(1));
+    }
+
     private IEnumerator LoadScene(int sceneIndex)
     {
-        transition.SetTrigger("FadeOut");
+        transition.SetTrigger(FadeOut);
         yield return new WaitForSeconds(animationTime);
         SceneManager.LoadScene(sceneIndex);
     }

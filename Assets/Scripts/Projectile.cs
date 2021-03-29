@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
     [Range(0f, 20f)] [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private float spinSpeed = 1f;
     [SerializeField] private float damage = 50f;
+    private bool _canCollide = true;
 
     // Update is called once per frame
     void Update()
@@ -20,8 +21,9 @@ public class Projectile : MonoBehaviour
         var health = other.GetComponent<Health>();
         var attacker = other.GetComponent<Attacker>();
 
-        if (attacker && health)
+        if (attacker && health && _canCollide)
         {
+            _canCollide = false;
             health.DealDamage(damage);
             Destroy(gameObject);
         }
