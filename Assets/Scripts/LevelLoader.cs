@@ -6,14 +6,16 @@ public class LevelLoader : MonoBehaviour
 {
     [SerializeField] private Animator transition;
     [SerializeField] private float timeToWait = 2.5f;
-    [SerializeField] private float animationTime = 1f; 
+    [SerializeField] private float animationTime = 1f;
+    private int _currentSceneIndex;
     private static readonly int FadeIn = Animator.StringToHash("FadeIn");
     private static readonly int FadeOut = Animator.StringToHash("FadeOut");
 
     // Start is called before the first frame update
     void Start()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 0)
+        _currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        if (_currentSceneIndex == 0)
         {
             StartCoroutine(LoadStartScene());
         }
@@ -25,12 +27,28 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadNextScene()
     {
-        StartCoroutine(LoadScene(SceneManager.GetActiveScene().buildIndex + 1));
+        StartCoroutine(LoadScene(_currentSceneIndex + 1));
     }
 
-    public void LoadLoseScreen()
+    public void RestartScene()
     {
+        Time.timeScale = 1;
+        StartCoroutine(LoadScene(_currentSceneIndex));
+    }
+
+    public void LoadMainMenu()
+    {
+        Time.timeScale = 1;
         StartCoroutine(LoadScene(1));
+    }
+
+    public void LoadOptionsMenu()
+    {
+        StartCoroutine(LoadScene(3));
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
     private IEnumerator LoadScene(int sceneIndex)
@@ -42,6 +60,6 @@ public class LevelLoader : MonoBehaviour
     private IEnumerator LoadStartScene()
     {
         yield return new WaitForSeconds(timeToWait);
-        LoadNextScene();
+        StartCoroutine(LoadScene(1));
     }
 }

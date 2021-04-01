@@ -25,7 +25,6 @@ public class GameTimer : MonoBehaviour
         {
             _levelController.LevelTimerFinished();
             _isLevelFinished = true;
-            //GetComponent<Animator>().enabled = false;
         }
     }
 }

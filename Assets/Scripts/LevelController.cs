@@ -1,12 +1,25 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelController : MonoBehaviour
 {
-    private int _numOfAttackers = 0;
+    [SerializeField] private GameObject winLabel;
+    [SerializeField] private GameObject loseLabel;
+    private int _numOfAttackers;
+    private bool _levelTimerFinished;
+    private AudioSource _audioSource;
+    private HealthDisplay _healthDisplay;
 
-    private bool _levelTimerFinished = false;
+    private void Start()
+    {
+        _audioSource = GetComponent<AudioSource>();
+        _healthDisplay = FindObjectOfType<HealthDisplay>();
+        winLabel.SetActive(false);
+        loseLabel.SetActive(false);
+    }
+
     public void AttackerSpawned()
     {
         _numOfAttackers++;
@@ -15,10 +28,24 @@ public class LevelController : MonoBehaviour
     public void AttackerDestroyed()
     {
         _numOfAttackers--;
-        if (_numOfAttackers <= 0 && _levelTimerFinished)
+        if (_numOfAttackers <= 0 && _levelTimerFinished && _healthDisplay.IsAlive())
         {
-            print("End level now!");
+            StartCoroutine(HandleWinCondition());
         }
+    }
+
+    private IEnumerator HandleWinCondition()
+    {
+        winLabel.SetActive(true);
+        _audioSource.Play();
+        yield return new WaitForSeconds(_audioSource.clip.length);
+        FindObjectOfType<LevelLoader>().LoadNextScene();
+    }
+
+    public void HandleLoseCondition()
+    {
+        loseLabel.SetActive(true);
+        Time.timeScale = 0;
     }
 
     public void LevelTimerFinished()

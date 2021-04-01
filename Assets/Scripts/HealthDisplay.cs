@@ -3,28 +3,36 @@ using UnityEngine.UI;
 
 public class HealthDisplay : MonoBehaviour
 {
-    [SerializeField] private int health = 5;
+    private int _health = 6;
     private Text _healthText;
+    private bool _lost;
 
     // Start is called before the first frame update
     void Start()
     {
+        _health /= PlayerPrefsController.Difficulty;
         _healthText = GetComponent<Text>();
         UpdateDisplay();
     }
 
     public void TakeDamage()
     {
-        health--;
+        _health--;
         UpdateDisplay();
-        if (health <= 0)
+        if (_health <= 0 && !_lost)
         {
-            FindObjectOfType<LevelLoader>().LoadLoseScreen();
+            _lost = true;
+            FindObjectOfType<LevelController>().HandleLoseCondition();
         }
     }
     private void UpdateDisplay()
     {
-        _healthText.text = Mathf.Max(health,0).ToString();
+        _healthText.text = Mathf.Max(_health,0).ToString();
+    }
+
+    public bool IsAlive()
+    {
+        return _health > 0;
     }
     
 }

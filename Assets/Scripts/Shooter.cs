@@ -5,6 +5,8 @@ public class Shooter : MonoBehaviour
     [SerializeField] private Projectile projectile;
     [SerializeField] private GameObject gunPoint;
 
+    private GameObject _projectileParent;
+    private const string ProjectileParentName = "Projectiles";
     private Animator _animator;
     private AttackerSpawner _myLaneSpawner;
     private static readonly int IsAttacking = Animator.StringToHash("IsAttacking");
@@ -14,11 +16,21 @@ public class Shooter : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         SetLaneSpawner();
+        CreateProjectileParent();
     }
 
     private void Update()
     {
         _animator.SetBool(IsAttacking, IsAttackerInLane());
+    }
+
+    private void CreateProjectileParent()
+    {
+        _projectileParent = GameObject.Find(ProjectileParentName);
+        if (!_projectileParent)
+        {
+            _projectileParent = new GameObject(ProjectileParentName);
+        }
     }
 
     private bool IsAttackerInLane()
@@ -42,6 +54,6 @@ public class Shooter : MonoBehaviour
 
     public void Fire()
     {
-        Instantiate(projectile, gunPoint.transform.position, Quaternion.identity);
+        Instantiate(projectile, gunPoint.transform.position, Quaternion.identity,_projectileParent.transform);
     }
 }
