@@ -7,6 +7,7 @@ public class LevelController : MonoBehaviour
 {
     [SerializeField] private GameObject winLabel;
     [SerializeField] private GameObject loseLabel;
+    [SerializeField] private GameObject pauseLabel;
     private int _numOfAttackers;
     private bool _levelTimerFinished;
     private AudioSource _audioSource;
@@ -18,6 +19,7 @@ public class LevelController : MonoBehaviour
         _healthDisplay = FindObjectOfType<HealthDisplay>();
         winLabel.SetActive(false);
         loseLabel.SetActive(false);
+        pauseLabel.SetActive(false);
     }
 
     public void AttackerSpawned()
@@ -36,10 +38,13 @@ public class LevelController : MonoBehaviour
 
     private IEnumerator HandleWinCondition()
     {
-        winLabel.SetActive(true);
-        _audioSource.Play();
-        yield return new WaitForSeconds(_audioSource.clip.length);
-        FindObjectOfType<LevelLoader>().LoadNextScene();
+        if (winLabel)
+        {
+            winLabel.SetActive(true);
+            _audioSource.Play();
+            yield return new WaitForSeconds(_audioSource.clip.length);
+            FindObjectOfType<LevelLoader>().LoadNextScene();
+        }
     }
 
     public void HandleLoseCondition()
@@ -48,6 +53,17 @@ public class LevelController : MonoBehaviour
         Time.timeScale = 0;
     }
 
+    public void PauseGame()
+    {
+        pauseLabel.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void ResumeGame()
+    {
+        pauseLabel.SetActive(false);
+        Time.timeScale = 1;
+    }
     public void LevelTimerFinished()
     {
         _levelTimerFinished = true;

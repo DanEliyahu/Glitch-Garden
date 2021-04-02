@@ -29,8 +29,8 @@ public class AttackerSpawner : MonoBehaviour
         if (attackersPrefabs.Length > 0)
         {
             var index = Random.Range(0, attackersPrefabs.Length);
-            var newAttacker = Instantiate(attackersPrefabs[index], transform.position, Quaternion.identity);
-            newAttacker.transform.SetParent(transform);
+            var transform1 = transform;
+            Instantiate(attackersPrefabs[index], transform1.position, Quaternion.identity,transform1);
         }
     }
 }

@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winLabel: {fileID: 0}
   loseLabel: {fileID: 0}
+  pauseLabel: {fileID: 0}
 --- !u!82 &676158180
 AudioSource:
   m_ObjectHideFlags: 0
