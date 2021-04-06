@@ -20,7 +20,12 @@ public class Projectile : MonoBehaviour
     {
         var health = other.GetComponent<Health>();
         var attacker = other.GetComponent<Attacker>();
+        var ghost = other.GetComponent<Ghost>();
 
+        if (ghost && ghost.IsVanished()) // no collision
+        {
+            return;
+        }
         if (attacker && health && _canCollide)
         {
             _canCollide = false;

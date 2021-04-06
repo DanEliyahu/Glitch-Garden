@@ -35,7 +35,12 @@ public class Shooter : MonoBehaviour
 
     private bool IsAttackerInLane()
     {
-        return _myLaneSpawner.transform.childCount > 0;
+        if (_myLaneSpawner)
+        {
+            return _myLaneSpawner.transform.childCount > 0;
+        }
+
+        return false;
     }
 
     private void SetLaneSpawner()
@@ -54,6 +59,6 @@ public class Shooter : MonoBehaviour
 
     public void Fire()
     {
-        Instantiate(projectile, gunPoint.transform.position, Quaternion.identity,_projectileParent.transform);
+        Instantiate(projectile, gunPoint.transform.position, Quaternion.identity, _projectileParent.transform);
     }
 }
