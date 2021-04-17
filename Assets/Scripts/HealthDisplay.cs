@@ -3,14 +3,14 @@ using UnityEngine.UI;
 
 public class HealthDisplay : MonoBehaviour
 {
-    private int _health = 6;
+    private int _health = 4;
     private Text _healthText;
     private bool _lost;
 
     // Start is called before the first frame update
     void Start()
     {
-        _health /= PlayerPrefsController.Difficulty;
+        _health -= PlayerPrefsController.Difficulty;
         _healthText = GetComponent<Text>();
         UpdateDisplay();
     }
