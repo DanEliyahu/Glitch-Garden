@@ -17,6 +17,7 @@ public class LevelLoader : MonoBehaviour
         _currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         if (_currentSceneIndex == 0)
         {
+            PlayerPrefs.DeleteAll();
             StartCoroutine(LoadStartScene());
         }
         else

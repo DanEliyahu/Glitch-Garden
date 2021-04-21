@@ -330,10 +330,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 5984020317572337505}
   - {fileID: 3987674216609458273}
   - {fileID: 2569624898618463713}
   - {fileID: 6863115944747903593}
-  - {fileID: 5984020317572337505}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -523,6 +523,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1302702547526007054, guid: fc52c3837c5ae815ab08fef930a91aac, type: 3}
   m_PrefabInstance: {fileID: 1272558146}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1432845943 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 597229674386401278, guid: 3cc54a58df1c3e25a8ea740dfe24ceb9, type: 3}
+  m_PrefabInstance: {fileID: 3970324717776909427}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1653872393
 GameObject:
@@ -1036,7 +1041,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6014942264576664252, guid: a4abd00d611e80129992390c4affaae5, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6014942264576664252, guid: a4abd00d611e80129992390c4affaae5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1295,7 +1300,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5431148930975517582, guid: 2e6db7a9652d34c4781ce826d1bde515, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5431148930975517582, guid: 2e6db7a9652d34c4781ce826d1bde515, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1443,10 +1448,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 7623376685288624125}
-    - target: {fileID: 2451054800007319476, guid: 6cbec33dbcb6b3c7f95f9f54a14fe238, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: NextIntro
-      objectReference: {fileID: 0}
     - target: {fileID: 5689778816390564540, guid: 6cbec33dbcb6b3c7f95f9f54a14fe238, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1477,7 +1478,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5689778816390564540, guid: 6cbec33dbcb6b3c7f95f9f54a14fe238, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5689778816390564540, guid: 6cbec33dbcb6b3c7f95f9f54a14fe238, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1589,7 +1590,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7623376684056280806, guid: 1c45107aaed0e077d857e25fbc1aed7f, type: 3}
       propertyPath: introTextList.Array.size
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7623376684056280806, guid: 1c45107aaed0e077d857e25fbc1aed7f, type: 3}
       propertyPath: winLabel
@@ -1621,16 +1622,41 @@ PrefabInstance:
       objectReference: {fileID: 5984020317572337506}
     - target: {fileID: 7623376684056280806, guid: 1c45107aaed0e077d857e25fbc1aed7f, type: 3}
       propertyPath: introTextList.Array.data[0]
-      value: This is the first one! It's really long and takes a lot of time!
+      value: 'Welcome to Glitch Garden!
+
+        In this game you''ll be trying to
+        defend your base against incoming attackers!'
       objectReference: {fileID: 0}
     - target: {fileID: 7623376684056280806, guid: 1c45107aaed0e077d857e25fbc1aed7f, type: 3}
       propertyPath: introTextList.Array.data[1]
-      value: Another one just for show
+      value: Place defenders by choosing them from the bottom panel. Each defender
+        has its cost written next to it. Your total available resources are listed
+        at the bottom left.
       objectReference: {fileID: 0}
     - target: {fileID: 7623376684056280806, guid: 1c45107aaed0e077d857e25fbc1aed7f, type: 3}
       propertyPath: introText
       value: 
       objectReference: {fileID: 950468988}
+    - target: {fileID: 7623376684056280806, guid: 1c45107aaed0e077d857e25fbc1aed7f, type: 3}
+      propertyPath: introTextList.Array.data[2]
+      value: 'The first available defender is The Mighty Cactus! It shoots zucchini
+        at incoming attackers and is capable of taking a few blows. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623376684056280806, guid: 1c45107aaed0e077d857e25fbc1aed7f, type: 3}
+      propertyPath: introTextList.Array.data[3]
+      value: At the top left you'll notice your Life Points. Whenever an attacker
+        crosses your garden you'll lose a point, when it reaches zero it's Game Over!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623376684056280806, guid: 1c45107aaed0e077d857e25fbc1aed7f, type: 3}
+      propertyPath: introTextList.Array.data[4]
+      value: "The running fox at the top right is the level timer, no more attackers
+        will spawn once the level timer has ended. \nAlright, enough talking, let's
+        get this started!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623376684056280806, guid: 1c45107aaed0e077d857e25fbc1aed7f, type: 3}
+      propertyPath: pauseButton
+      value: 
+      objectReference: {fileID: 1432845943}
     - target: {fileID: 7623376684056280807, guid: 1c45107aaed0e077d857e25fbc1aed7f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1725,7 +1751,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3410028116141618814, guid: 7c6b97fdcf881166e8207dda2d73a0b9, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3410028116141618814, guid: 7c6b97fdcf881166e8207dda2d73a0b9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
