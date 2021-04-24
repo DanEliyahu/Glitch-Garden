@@ -1475,6 +1475,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3970324718788463022, guid: 3cc54a58df1c3e25a8ea740dfe24ceb9, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9506861
+      objectReference: {fileID: 0}
+    - target: {fileID: 3970324718788463022, guid: 3cc54a58df1c3e25a8ea740dfe24ceb9, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8584906
+      objectReference: {fileID: 0}
+    - target: {fileID: 3970324718788463022, guid: 3cc54a58df1c3e25a8ea740dfe24ceb9, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3970324718985233177, guid: 3cc54a58df1c3e25a8ea740dfe24ceb9, type: 3}
       propertyPath: m_Name
       value: Game Canvas

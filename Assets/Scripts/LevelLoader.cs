@@ -45,7 +45,7 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadOptionsMenu()
     {
-        StartCoroutine(LoadScene(3));
+        StartCoroutine(LoadScene(10));
     }
     public void QuitGame()
     {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerPrefsController : MonoBehaviour
 {
     private const string MasterVolumeKey = "MasterVolume";
-    private const float DefaultMasterVolumeValue = 0.5f;
+    private const float DefaultMasterVolumeValue = 0.8f;
     private const float MinimumMasterVolumeValue = 0f;
     private const float MaximumMasterVolumeValue = 1f;
 

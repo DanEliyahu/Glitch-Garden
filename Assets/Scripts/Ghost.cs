@@ -18,4 +18,9 @@ public class Ghost : MonoBehaviour
     {
         return !_canCollide;
     }
+
+    public void SetCanCollide()
+    {
+        _canCollide = true;
+    }
 }
